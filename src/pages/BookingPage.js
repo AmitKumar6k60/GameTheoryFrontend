@@ -28,7 +28,7 @@ const BookingPage = () => {
 
   const fetchCentres = async () => {
     try {
-      const response = await fetch('https://13.60.199.62:5001/api/centres');
+      const response = await fetch('http://13.60.199.62:5001/api/centres');
       const data = await response.json();
       setCentres(data);
     } catch (error) {
@@ -39,7 +39,7 @@ const BookingPage = () => {
 
   const fetchSports = async (centreId) => {
     try {
-      const response = await fetch(`https://13.60.199.62:5001/api/sports_with_centreId/${centreId}`);
+      const response = await fetch(`http://13.60.199.62:5001/api/sports_with_centreId/${centreId}`);
       const data = await response.json();
       if (Array.isArray(data)) {
         setSports(data);
@@ -55,7 +55,7 @@ const BookingPage = () => {
 
   const fetchResources = async (centreId, sportId) => {
     try {
-      const response = await fetch(`https://13.60.199.62:5001/api/resources/${centreId}/${sportId}`);
+      const response = await fetch(`http://13.60.199.62:5001/api/resources/${centreId}/${sportId}`);
       const data = await response.json();
       if (Array.isArray(data)) {
         setResources(data);
@@ -71,7 +71,7 @@ const BookingPage = () => {
 
   const fetchBookings = async () => {
     try {
-      const response = await fetch('https://13.60.199.62:5001/api/bookings');
+      const response = await fetch('http://13.60.199.62:5001/api/bookings');
       const data = await response.json();
       setBookings(data);
     } catch (error) {
@@ -82,7 +82,7 @@ const BookingPage = () => {
 
   const deleteBooking = async (bookingId) => {
     try {
-      await fetch(`https://13.60.199.62:5001/api/bookings/${bookingId}`, {
+      await fetch(`http://13.60.199.62:5001/api/bookings/${bookingId}`, {
         method: 'DELETE',
       });
       fetchBookings(); // Refresh the bookings list
@@ -137,7 +137,7 @@ const BookingPage = () => {
     const end_time = `${parseInt(hour) + 1}:00`; // Assuming 1-hour slots
 
     try {
-      await fetch('https://13.60.199.62:5001/api/bookings', {
+      await fetch('http://13.60.199.62:5001/api/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

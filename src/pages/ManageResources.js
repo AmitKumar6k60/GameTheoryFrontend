@@ -16,7 +16,7 @@ const ManageResources = () => {
 
   // Fetch resources from the backend
   const fetchResources = () => {
-    fetch('https://13.60.199.62:5001/api/resources')
+    fetch('http://13.60.199.62:5001/api/resources')
       .then((response) => response.json())
       .then((data) => setResources(data))
       .catch((error) => console.error('Error fetching resources:', error));
@@ -24,7 +24,7 @@ const ManageResources = () => {
 
   // Fetch centres from the backend
   const fetchCenters = () => {
-    fetch('https://13.60.199.62:5001/api/centres') // Adjust URL as needed
+    fetch('http://13.60.199.62:5001/api/centres') // Adjust URL as needed
       .then((response) => response.json())
       .then((data) => setCenters(data))
       .catch((error) => console.error('Error fetching centres:', error));
@@ -32,7 +32,7 @@ const ManageResources = () => {
 
   // Fetch sports based on selected center
   const fetchSports = (centerId) => {
-    fetch(`https://13.60.199.62:5001/api/sports_with_centreId/${centerId}`)
+    fetch(`http://13.60.199.62:5001/api/sports_with_centreId/${centerId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log('Fetched sports:', data); // Log fetched sports
@@ -66,7 +66,7 @@ const ManageResources = () => {
   // Add new resource
   const addResource = (e) => {
     e.preventDefault();
-    fetch('https://13.60.199.62:5001/api/resources', {
+    fetch('http://13.60.199.62:5001/api/resources', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const ManageResources = () => {
 
   // Delete resource
   const deleteResource = (id) => {
-    fetch(`https://13.60.199.62:5001/api/resources/${id}`, {
+    fetch(`http://13.60.199.62:5001/api/resources/${id}`, {
       method: 'DELETE',
     })
       .then(() => fetchResources()) // Refresh the list after deleting
