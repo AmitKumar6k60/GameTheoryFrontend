@@ -31,6 +31,7 @@ const ManageCentres = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newCentre),
+      mode: 'no-cors',
     })
       .then(() => {
         fetchCentres(); // Refresh the centres list after adding
