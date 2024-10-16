@@ -10,7 +10,7 @@ const ManageCentres = () => {
   }, []);
 
   const fetchCentres = () => {
-    fetch('http://localhost:5001/api/centres')
+    fetch('http://13.60.199.62:5001/api/centres')
       .then((response) => response.json())
       .then((data) => setCentres(data))
       .catch((error) => console.error('Error fetching centres:', error));
@@ -25,7 +25,7 @@ const ManageCentres = () => {
   // Add new centre
   const addCentre = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5001/api/centres', {
+    fetch('http://13.60.199.62:5001/api/centres', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const ManageCentres = () => {
 
   // Delete centre
   const deleteCentre = (id) => {
-    fetch(`http://localhost:5001/api/centres/${id}`, {
+    fetch(`http://13.60.199.62:5001/api/centres/${id}`, {
       method: 'DELETE',
     })
       .then(() => fetchCentres()) // Refresh the list after deleting

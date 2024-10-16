@@ -12,14 +12,14 @@ const ManageSports = () => {
   }, []);
 
   const fetchSports = () => {
-    fetch('http://localhost:5001/api/sports')
+    fetch('http://13.60.199.62:5001/api/sports')
       .then((response) => response.json())
       .then((data) => setSports(data))
       .catch((error) => console.error('Error fetching sports:', error));
   };
 
   const fetchCentres = () => {
-    fetch('http://localhost:5001/api/Centres') 
+    fetch('http://13.60.199.62:5001/api/Centres') 
       .then((response) => response.json())
       .then((data) => setCentres(data))
       .catch((error) => console.error('Error fetching centres:', error));
@@ -34,7 +34,7 @@ const ManageSports = () => {
   // Add new sport
   const addSport = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5001/api/sports', {
+    fetch('http://13.60.199.62:5001/api/sports', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const ManageSports = () => {
 
   // Delete sport
   const deleteSport = (id) => {
-    fetch(`http://localhost:5001/api/sports/${id}`, {
+    fetch(`http://13.60.199.62:5001/api/sports/${id}`, {
       method: 'DELETE',
     })
       .then(() => fetchSports()) // Refresh the list after deleting
